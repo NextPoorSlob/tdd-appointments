@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "test": "jest",
-    "build": "webpack"
+    "watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
   "dependencies": {
     "@babel/runtime": "^7.20.1",
     "@faker-js/faker": "^7.6.0",
+    "jest-matcher-utils": "^29.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -42,6 +44,7 @@
     "testEnvironment": "jsdom",
     "globals": {
       "IS_REACT_ACT_ENVIRONMENT": true
-    }
+    },
+    "setupFilesAfterEnv": ["./test/domMatchers.js"]
   }
 }
