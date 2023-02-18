@@ -32,6 +32,9 @@ export const form = (id) => element("form");
 export const field = (fieldName) =>
     form().elements[fieldName];
 
+export const labelFor = (fieldName) =>
+    element(`label[for=${fieldName}]`);
+
 export const submit = (formElement) => {
     const event = new Event("submit", {
         bubbles: true,

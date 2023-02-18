@@ -2,13 +2,13 @@ import React from "react";
 import {
     initializeReactContainer,
     render,
-    element,
     form,
     field,
     click,
     submit,
     submitButton,
     change,
+    labelFor,
 } from "./reactTestExtensions";
 import {CustomerForm} from "../src/CustomerForm";
 
@@ -70,12 +70,12 @@ describe("CustomerForm", () => {
 
         it("renders a label", () => {
             render(<CustomerForm original={blankCustomer}/>);
-            const label = element(`label[for=${fieldName}`);
+            const label = labelFor(fieldName);
             expect(label).not.toBeNull();
         });
         it(`renders '${text}' as the label content`, () => {
             render(<CustomerForm original={blankCustomer}/>);
-            const label = element(`label[for=${fieldName}]`);
+            const label = labelFor(fieldName);
             expect(label).toContainText(text);
         });
 
