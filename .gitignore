@@ -1,4 +1,5 @@
 node_modules/
 .idea/
-
+server/
 /dist/main.js
+/server/src/app.js

@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 
 const randomInt = (range) =>
-    Math.floor(Math.random() * range);
+  Math.floor(Math.random() * range);
 
 Array.prototype.unique = function () {
   return this.filter(function (value, index, self) {
@@ -53,9 +53,9 @@ export const sampleAppointments = [
 ];
 
 const pickMany = (items, number) =>
-    Array(number)
-        .fill(1)
-        .map(() => items.pickRandom());
+  Array(number)
+    .fill(1)
+    .map(() => items.pickRandom());
 
 const buildTimeSlots = () => {
   const today = new Date();
@@ -64,13 +64,13 @@ const buildTimeSlots = () => {
     const daysToAdd = day * 24 * 60 * 60 * 1000;
     return [...Array(20).keys()].map((halfHour) => {
       const halfHoursToAdd =
-          halfHour * 30 * 60 * 1000;
+        halfHour * 30 * 60 * 1000;
       return {
         startsAt:
-            startTime + daysToAdd + halfHoursToAdd,
+          startTime + daysToAdd + halfHoursToAdd,
         stylists: pickMany(
-            stylists,
-            randomInt(stylists.length)
+          stylists,
+          randomInt(stylists.length)
         ),
       };
     });
@@ -79,6 +79,6 @@ const buildTimeSlots = () => {
 };
 
 export const sampleAvailableTimeSlots = pickMany(
-    buildTimeSlots(),
-    50
+  buildTimeSlots(),
+  50
 );

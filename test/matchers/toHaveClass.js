@@ -1,32 +1,32 @@
 import {
-    matcherHint,
-    printExpected,
-    printReceived,
+  matcherHint,
+  printExpected,
+  printReceived,
 } from "jest-matcher-utils";
 
 export const toHaveClass = (
-    received,
-    expectedClass
+  received,
+  expectedClass
 ) => {
-    const pass =
-        received.className.includes(expectedClass);
+  const pass =
+    received.className.includes(expectedClass);
 
-    const sourceHint = () =>
-        matcherHint(
-            "toHaveClass",
-            "element",
-            printExpected(expectedClass),
-            { isNot: pass }
-        );
+  const sourceHint = () =>
+    matcherHint(
+      "toHaveClass",
+      "element",
+      printExpected(expectedClass),
+      { isNot: pass }
+    );
 
-    const actualTextHint = () =>
-        received.className === ""
-            ? "Actual classes: " + printReceived([])
-            : "Actual classes: " +
-            printReceived(received.className.split(" "));
+  const actualTextHint = () =>
+    received.className === ""
+      ? "Actual classes: " + printReceived([])
+      : "Actual classes: " +
+        printReceived(received.className.split(" "));
 
-    const message = () =>
-        [sourceHint(), actualTextHint()].join("\n\n");
+  const message = () =>
+    [sourceHint(), actualTextHint()].join("\n\n");
 
-    return { pass, message };
+  return { pass, message };
 };
